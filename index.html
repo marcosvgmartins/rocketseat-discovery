@@ -56,7 +56,7 @@
 
             <!--    Obs.: If we want it to be a button, then it should be a button,
                     not a link (semantics) -->
-            <a href="#" class="button new" onclick="modal.open()">+ Nova Transação</a>
+            <a href="#" class="button new" onclick="Modal.open()">+ Nova Transação</a>
 
             <table id="data-table">
                 <thead>
@@ -80,7 +80,7 @@
         <div class="modal">
             <div class="form">
                 <h2>Nova Transação</h2>
-                <form action="">
+                <form action="" onsubmit="Form.submit(event)">
 
                     <div class="input-group">
                         <label class="sr-only" for="description">Descrição</label>
@@ -103,7 +103,7 @@
 
                     <div class="input-group actions">
                         <a href="#" class="button cancel"
-                            onclick="modal.close()">Cancelar</a>
+                            onclick="Modal.close()">Cancelar</a>
                         <button>Salvar</button>
                     </div>
                 </form>
