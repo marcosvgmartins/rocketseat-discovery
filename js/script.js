@@ -9,6 +9,18 @@ const Modal = {
     }
 }
 
+const TransactionsLocalStorageKey = "dev.finances:transactions"
+
+const Storage = {
+    get() {
+        return JSON.parse(localStorage.getItem(TransactionsLocalStorageKey)) || []
+    },
+
+    set(transactions) {
+        localStorage.setItem(TransactionsLocalStorageKey, JSON.stringify(transactions))
+    },
+}
+
 const transactions = [
     {
         id: 1,
@@ -37,7 +49,7 @@ const transactions = [
 ]
 
 const Transaction = {
-    allTransactions: transactions,
+    allTransactions: Storage.get(),
 
     add(transaction) {
         this.allTransactions.push(transaction)
@@ -83,7 +95,7 @@ const Utils = {
     },
 
     formatAmount(value) {
-        return Number(value) * 100
+        return Math.round(Number(value) * 100)
     },
 
     formatDate(date) {
@@ -139,6 +151,7 @@ const App = {
 
         TransactionDOM.updateBalance()
 
+        Storage.set(Transaction.allTransactions)
     },
 
     reload() {
@@ -207,10 +220,3 @@ const Form = {
 }
 
 App.init()
-
-Transaction.add({
-    id: 39,
-    description: "Freela",
-    amount: 400000,
-    date: "01/02/2021"
-})

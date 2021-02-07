@@ -6,4 +6,15 @@ I am taking this course as part of my front-end learning path, something I've wa
 
 ## dev.finance$
 
-This is the front-end of an app for controlling expenses.
+This is an app for controlling expenses. Users can add or remove transactions, and the table and balance will update automatically.
+
+Currently, all data is stored at the browser's local storage. This
+
+You can see the result [here](https://marcosvgmartins.github.io/rocketseat-discovery/).
+
+## Future Work
+
+1. Integrate with a back-end
+1. Persist transactions in a more durable fashion
+1. Implement filters for the transactions (by date, type etc.)
+1. Implement authentication
